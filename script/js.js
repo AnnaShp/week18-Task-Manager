@@ -8,7 +8,7 @@ let btnClear = document.querySelector('.btn_clear');
 
 document.addEventListener('DOMContentLoaded', function (evt) {
     btnClear.setAttribute('disabled', 'disabled');
-    if (localStorage.getItem('tasksStr') != '') { showFromLocal() };
+    if (localStorage.getItem('tasksStr')) { showFromLocal() };
 });
 
 btnAdd.addEventListener('click', function (evt) {
@@ -38,7 +38,7 @@ function addTask() {
     input.type = 'checkbox';
     input.classList = 'check_task';
 
-    if (task.value != '') {
+    if (task.value.trim() != '') {
         document.querySelector('.empty_task').style.display = 'none';
         result.append(div);
         div.append(newP, input);
